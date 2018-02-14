@@ -1,0 +1,1 @@
+rails g model Contact contact_id:string contact_created_at:integer

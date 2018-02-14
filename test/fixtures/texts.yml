@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  text_id: MyString
+  text_created_at: 1
+  sender_id: MyString
+  channel_id: MyString
+  formatted_value: MyString
+
+two:
+  body: MyString
+  text_id: MyString
+  text_created_at: 1
+  sender_id: MyString
+  channel_id: MyString
+  formatted_value: MyString

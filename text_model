@@ -1,0 +1,1 @@
+rails g model Text body:string text_id:string text_created_at:integer sender_id:string channel_id:string formatted_value:string
