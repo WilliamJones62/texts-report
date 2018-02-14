@@ -1,3 +1,27 @@
 // Place all the styles related to the texts-report controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    border: 1px solid red;
+    padding: 15px;
+}
+
+.flot {
+  /* For mobile phones: */
+    width: 100%;
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .flot {
+      width: 33.33%;
+  }
+
+}
