@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214180506) do
+ActiveRecord::Schema.define(version: 20180216130543) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "contact_id"
     t.integer "contact_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "service_id"
+    t.string "service_name"
   end
 
   create_table "texts", force: :cascade do |t|
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 20180214180506) do
     t.string "formatted_value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "service_id"
+    t.string "service_name"
   end
 
 end
