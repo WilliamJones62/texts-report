@@ -1,0 +1,5 @@
+class AddContactUpdatedAtToContacts < ActiveRecord::Migration[5.1]
+  def change
+    add_column :contacts, :contact_updated_at, :integer
+  end
+end
