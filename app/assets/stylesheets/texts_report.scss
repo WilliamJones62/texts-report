@@ -6,16 +6,33 @@
 }
 
 .header {
-    border: 1px solid red;
-    padding: 15px;
+  text-align: center;
+}
+
+table, th, td {
+    border: 0px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+th{
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
 }
 
 .flot {
   /* For mobile phones: */
     width: 100%;
     float: left;
-    padding: 15px;
-    border: 1px solid red;
 }
 
 @media only screen and (min-width: 768px) {

@@ -2,7 +2,32 @@
   <h1>Texts Report Dashboard</h1>
 </div>
 
-<%= @response %>
+<h2> Texts To Date Summary </h2>
+
+<table class="mytable" class="display" cellspacing="0" >
+  <thead>
+  <tr>
+    <th>Service</th>
+    <th>Contacts</th>
+    <th>Inbound Texts</th>
+    <th>Outbound Texts</th>
+    <th>Inbound Texts/Contacts</th>
+    <th>Contacts With No Texts</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @total_array.each do |t| %>
+    <tr>
+      <td><%= t[:service_id] %></td>
+      <td><%= t[:contacts] %></td>
+      <td><%= t[:inbound] %></td>
+      <td><%= t[:outbound] %></td>
+      <td><%= t[:avg] %></td>
+      <td><%= t[:never] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <div class="flot">
   <div style="width:28em;height:28em;text-align:center;margin:0.7em">
