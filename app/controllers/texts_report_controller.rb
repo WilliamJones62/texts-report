@@ -15,6 +15,10 @@ class TextsReportController < ApplicationController
 
     @total_array = []
     contact_array = []
+    total_texts = 0
+    @percentages = []
+    @counts = []
+
 
     services.each do |s|
       contacts = Contact.where(service_id:  s[:id]).count
@@ -30,6 +34,15 @@ class TextsReportController < ApplicationController
       avg = inbound / contacts
       service_detail = { :service_id => s[:name], :contacts => contacts, :inbound => inbound, :outbound => outbound, :avg => avg, :never => never }
       @total_array.push(service_detail)
+      total_texts += inbound
     end
+
+    i = 0
+    @total_array.each do |t|
+      @percentages[i] = (t[:inbound]*100)/total_texts.round
+      @counts[i] = t[:inbound]
+      i += 1
+    end
+
   end
 end
