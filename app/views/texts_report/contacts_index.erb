@@ -1,0 +1,35 @@
+<h1>Contacts</h1>
+
+<table class="mytable" class="display">
+  <thead>
+    <tr>
+      <th>Contact Id</th>
+      <th>Created Date</th>
+      <th>Service Id</th>
+      <th>Updated Date</th>
+      <th>Display Name</th>
+      <th>Value</th>
+      <th>Name</th>
+      <th>Customer Code</th>
+      <th>Location</th>
+      <th>Sales Rep</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.contact_id %></td>
+        <td><%= contact.contact_created_at %></td>
+        <td><%= contact.service_id %></td>
+        <td><%= contact.contact_updated_at %></td>
+        <td><%= contact.display_name %></td>
+        <td><%= contact.value %></td>
+        <td><%= contact.name %></td>
+        <td><%= contact.customer_code %></td>
+        <td><%= contact.location %></td>
+        <td><%= contact.sales_rep %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

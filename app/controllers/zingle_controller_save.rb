@@ -8,12 +8,14 @@ class ZingleController < ApplicationController
       message.text_id = m[:"id"]
       message.text_created_at = m[:"created_at"]
       if m[:"communication_direction"] == 'outbound'
-        message.service_id = m[:"recipient"][:"id"]
+        message.service_id = m[:"sender"][:"id"]
+        message.contact_id = m[:"recipient"][:"id"]
         message.type_class = m[:"recipient"][:"channel"][:"type_class"]
         message.value = m[:"recipient"][:"channel"][:"value"]
         message.display_name = m[:"recipient"][:"channel"][:"display_name"]
       else
-        message.service_id = m[:"sender"][:"id"]
+        message.service_id = m[:"recipient"][:"id"]
+        message.contact_id = m[:"sender"][:"id"]
         message.type_class = m[:"sender"][:"channel"][:"type_class"]
         message.value = m[:"sender"][:"channel"][:"value"]
         message.display_name = m[:"sender"][:"channel"][:"display_name"]

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'zingle/datainput'
+  get 'texts_report/texts_index'
+  get 'texts_report/contacts_index'
 
   root 'texts_report#dashboard'
 

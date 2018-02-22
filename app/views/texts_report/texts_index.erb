@@ -1,0 +1,33 @@
+<h1>Texts</h1>
+
+<table class="mytable" class="display">
+  <thead>
+    <tr>
+      <th>Text Id</th>
+      <th>Body</th>
+      <th>Created Date</th>
+      <th>Service Id</th>
+      <th>Communication Direction</th>
+      <th>Type Class</th>
+      <th>Display Name</th>
+      <th>Value</th>
+      <th>Contact Id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @texts.each do |text| %>
+      <tr>
+        <td><%= text.text_id %></td>
+        <td><%= text.body %></td>
+        <td><%= text.text_created_at %></td>
+        <td><%= text.service_id %></td>
+        <td><%= text.communication_direction %></td>
+        <td><%= text.type_class %></td>
+        <td><%= text.display_name %></td>
+        <td><%= text.value %></td>
+        <td><%= text.contact_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,4 +1,20 @@
 class TextsReportController < ApplicationController
+  def texts_index
+    @texts = Text.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @texts.to_csv }
+    end
+  end
+
+  def contacts_index
+    @contacts = Contact.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @contacts.to_csv }
+    end
+  end
+
   def dashboard
     services = [
       { id: "31444380-7c5f-11e7-a433-0f09c13b1321", name: "NJ" },
@@ -10,7 +26,8 @@ class TextsReportController < ApplicationController
       { id: "8ca25250-7c63-11e7-89c4-0fa69508e350", name: "OOT" },
       { id: "83fc41b0-7c64-11e7-b7d4-27e2ad4de906", name: "PHILLY" },
       { id: "d5da2070-7c64-11e7-a859-b764a3b3d134", name: "SOUTHEAST" },
-      { id: "50d9c910-7c65-11e7-80c3-ff56c9c4133d", name: "TEXAS/DENVER" }
+      { id: "50d9c910-7c65-11e7-80c3-ff56c9c4133d", name: "TEXAS/DENVER" },
+      { id: "ba3cd740-7c65-11e7-b181-1be8782dfae5", name: "DC" }
     ]
 
     @total_array = []
@@ -45,4 +62,13 @@ class TextsReportController < ApplicationController
     end
 
   end
+
+  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def text_params
+      textparams.require(:text).permit(:text_id, :body, :text_created_at, :service_id, :communication_direction, :type_class, :display_name, :value, :contact_id)
+    end
+    def contact_params
+      contactparams.require(:contact).permit(:contact_id, :contact_created_at, :service_id, :contact_updated_at, :display_name, :value, :name, :customer_code, :location, :sales_rep)
+    end
 end
