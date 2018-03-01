@@ -35,7 +35,45 @@ class TextsReportController < ApplicationController
     total_texts = 0
     @percentages = []
     @counts = []
-
+    @weeks = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    week_ending = []
+    week_ending [0] = Date.parse( '2017-09-09' )
+    week_ending [1] = Date.parse( '2017-09-16' )
+    week_ending [2] = Date.parse( '2017-09-23' )
+    week_ending [3] = Date.parse( '2017-09-30' )
+    week_ending [4] = Date.parse( '2017-10-07' )
+    week_ending [5] = Date.parse( '2017-10-14' )
+    week_ending [6] = Date.parse( '2017-10-21' )
+    week_ending [7] = Date.parse( '2017-10-28' )
+    week_ending [8] = Date.parse( '2017-11-04' )
+    week_ending [9] = Date.parse( '2017-11-11' )
+    week_ending [10] = Date.parse( '2017-11-18' )
+    week_ending [11] = Date.parse( '2017-11-25' )
+    week_ending [12] = Date.parse( '2017-12-02' )
+    week_ending [13] = Date.parse( '2017-12-09' )
+    week_ending [14] = Date.parse( '2017-12-16' )
+    week_ending [15] = Date.parse( '2017-12-23' )
+    week_ending [16] = Date.parse( '2017-12-30' )
+    week_ending [17] = Date.parse( '2018-01-06' )
+    week_ending [18] = Date.parse( '2018-01-13' )
+    week_ending [19] = Date.parse( '2018-01-20' )
+    week_ending [20] = Date.parse( '2018-01-27' )
+    week_ending [21] = Date.parse( '2018-02-03' )
+    week_ending [22] = Date.parse( '2018-02-10' )
+    week_ending [23] = Date.parse( '2018-02-17' )
+    week_ending [24] = Date.parse( '2018-02-24' )
+    texts = Text.where(communication_direction: 'inbound').all
+    texts.each do |t|
+      d = Time.at(t.text_created_at).to_date
+      i = 0
+      while i < 25
+        if d < week_ending[i]
+          @weeks[i] += 1
+          i = 25
+        end
+        i += 1
+      end
+    end
 
     services.each do |s|
       contacts = Contact.where(service_id:  s[:id]).count
